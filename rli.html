@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Lost Item-UIU Lost & Found</title>
+    <link rel="stylesheet" href="rli.css">
+    <link rel="icon" type="image/png" href="LOST AND FOUND.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<body>
+    <!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">UIU <span>Lost &amp; Found</span></a>
+  <div class="nav-links">
+    <form method="get" style="display:flex; gap:8px;">
+  <input
+    type="text"
+    name="search"
+    placeholder="Search items…"
+    style="
+      padding: 8px 14px;
+      border: 1.5px solid #E7E5E4;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      width: 220px;
+    "
+  />
+  <button
+    type="submit"
+    style="
+      background: #F97316;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    "
+  >
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+</form>
+    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+    <a href="register.html" class="btn-nav"><i class="fa-solid fa-user-plus"></i> Register</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+
+
+  <div class="card">
+
+    <div class="card-header">
+      <h1>📢 Report a Lost Item</h1>
+      <p>Fill in the details below. The more specific you are, the easier it is for someone to identify and return your item.</p>
+    </div>
+
+    <div class="card-body">
+
+      <form  method="post" enctype="multipart/form-data">
+
+        <!-- Item Details -->
+        <div class="form-section-title">Item Details</div>
+
+        <div class="form-group">
+          <label>Item Name <span class="required">*</span></label>
+          <input type="text" name="item_name" placeholder="e.g. Samsung Galaxy A54, Blue Backpack, Student ID…" required />
+        </div>
+
+        <div class="form-group">
+          <label>Category <span class="required">*</span></label>
+          <select name="category" required>
+            <option value="" disabled selected>Select a category</option>
+            <option>📱 Electronics</option>
+            <option>🪪 ID / Cards</option>
+            <option>🎒 Bags &amp; Accessories</option>
+            <option>📚 Books &amp; Notes</option>
+            <option>👕 Clothing</option>
+            <option>🔑 Keys</option>
+            <option>💳 Wallet / Money</option>
+            <option>👓 Eyewear</option>
+            <option>🎧 Headphones / Earbuds</option>
+            <option>🖊️ Stationery</option>
+            <option>📦 Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Description <span class="required">*</span></label>
+          <textarea name="description" placeholder="Describe the item — color, brand, model, size, any unique marks or stickers…" required></textarea>
+          <p class="hint">Be as detailed as possible to help identify the item.</p>
+        </div>
+
+        <div class="form-group">
+          <label>Photo (optional)</label>
+          <div class="upload-box">
+            <input type="file" name="photo" accept="image/*" />
+            <span class="upload-icon">📷</span>
+            <p>Click to upload a photo of the item</p>
+            <span>JPG, PNG – max 5MB</span>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Location & Time -->
+        <div class="form-section-title">Where &amp; When</div>
+
+        <div class="form-group">
+          <label>Last Seen Location <span class="required">*</span></label>
+          <select name="location" required>
+            <option value="" disabled selected>Select a location</option>
+            <option>Library</option>
+            <option>Cafeteria</option>
+            <option>Classroom</option>
+             <option>Lab</option>
+            <option>Prayer Room</option>
+            <option>Parking Lot</option>
+            <option>ATM Booth</option>
+            <option>Main Gate / Reception</option>
+            <option >Field</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Specific Spot</label>
+          <input type="text" name="specific_spot" placeholder="e.g. 4th floor near room 412, front row seat…" />
+          <p class="hint">Optional but helpful.</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date Lost <span class="required">*</span></label>
+            <input type="date" name="date_lost" required />
+          </div>
+          <div class="form-group">
+            <label>Approximate Time</label>
+            <input type="time" name="time_lost" />
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Contact -->
+        <div class="form-section-title">Your Contact Info</div>
+
+        <div class="form-group">
+          <label>Full Name <span class="required">*</span></label>
+          <input type="text" name="full_name" placeholder="Enter your full name" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number <span class="required">*</span></label>
+            <input type="tel" name="phone" placeholder="01XXXXXXXXX" required />
+          </div>
+          <div class="form-group">
+            <label>Student ID (optional)</label>
+            <input type="text" name="student_id" placeholder="e.g. 011231456" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email (optional)</label>
+          <input type="email" name="email" placeholder="your@email.com" />
+          <p class="hint">We'll notify you if someone reports your item found.</p>
+        </div>
+
+        <button type="submit" class="submit-btn">📢 Submit Lost Item Report</button>
+        <a href="index.html" class="cancel-link">Cancel and go back</a>
+
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Made with ❤️ for <strong>UIU</strong> students &nbsp;·&nbsp; © 2026 UIU Lost &amp; Found
+</footer>
+
+</body>
+</html>
