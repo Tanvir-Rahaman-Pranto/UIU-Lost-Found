@@ -17,8 +17,6 @@
     display: flex;
     flex-direction: column;
   }
-
-  /* NAV */
   nav {
     background: #fff;
     border-bottom: 1px solid var(--border);
@@ -57,8 +55,6 @@
     font-weight: 600 !important;
   }
   .btn-nav:hover { background: var(--orange-dark) !important; }
-
-  /* PAGE WRAPPER */
   main {
     flex: 1;
     max-width: 680px;
@@ -67,8 +63,6 @@
     padding: 0 24px 60px;
   }
 
-
-  /* CARD */
   .card {
     background: #fff;
     border-radius: 18px;
@@ -95,8 +89,6 @@
   }
 
   .card-body { padding: 32px 36px; }
-
-  /* FORM */
   .form-section-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -162,8 +154,6 @@
     color: var(--text-light);
     margin-top: 5px;
   }
-
-  /* IMAGE UPLOAD */
   .upload-box {
     border: 2px dashed #FED7AA;
     border-radius: 10px;
@@ -190,10 +180,7 @@
   .upload-box p { font-size: 0.85rem; color: var(--text-mid); }
   .upload-box span { font-size: 0.78rem; color: var(--text-light); display: block; margin-top: 4px; }
 
-  /* DIVIDER */
   .divider { margin: 28px 0; border: none; border-top: 1px solid var(--border); }
-
-  /* SUBMIT */
   .submit-btn {
     display: block;
     width: 100%;
@@ -224,8 +211,6 @@
     transition: color 0.15s;
   }
   .cancel-link:hover { color: var(--text-mid); }
-
-  /* FOOTER */
   footer {
     text-align: center;
     padding: 20px;
