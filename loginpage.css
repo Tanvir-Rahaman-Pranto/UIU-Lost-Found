@@ -4,7 +4,6 @@
     --uiu-light-bg: #f8f9fa;
      --text-dark: #1C1917;
 }
-/* Navbar positioned at top */
 .navbar{
     position:fixed;
     top:0;
@@ -13,8 +12,6 @@
     background: var(--uiu-light-bg);
     padding:10px 20px;
 }
-
-/* Links aligned left */
 .nav-links{
     list-style:none;
     display:flex;
