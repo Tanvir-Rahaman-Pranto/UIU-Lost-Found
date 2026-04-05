@@ -183,7 +183,56 @@
   }
   footer strong { color: var(--orange); }
 
+<<<<<<< HEAD
   @media (max-width: 500px) {
     nav { padding: 0 16px; }
     .nav-links a:not(.btn-nav) { display: none; }
   }
+=======
+/* Tablet (600px - 900px) */
+@media (max-width: 900px) {
+  main {
+    margin: 32px auto;
+    padding: 0 20px 40px;
+  }
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile (below 600px) */
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  main {
+    margin: 20px auto;
+    padding: 0 16px 40px;
+  }
+  .card-header, .card-body {
+    padding: 20px 16px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .card-header h1 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Very small screens (below 360px) */
+@media (max-width: 360px) {
+  .nav-logo {
+    font-size: 1rem;
+  }
+  .card-header h1 {
+    font-size: 1.1rem;
+  }
+  .submit-btn {
+    font-size: 0.88rem;
+  }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none !important; }
+  .hamburger { display: flex; }
+}
+>>>>>>> 1e006cb (I changed the extra register button)
