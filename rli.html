@@ -14,21 +14,10 @@
   <a href="index.html" class="nav-logo">UIU <span>Lost &amp; Found</span></a>
   <div class="nav-links">
     <form method="get" style="display:flex; gap:8px;">
-  <input
-    type="text"
-    name="search"
-    placeholder="Search items…"
-    style="
-      padding: 8px 14px;
-      border: 1.5px solid #E7E5E4;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-family: 'Inter', sans-serif;
-      outline: none;
-      width: 220px;
-    "
-  />
+
   <button
+   type="button"
+  onclick="window.location.href='searchpage.html'"
     type="submit"
     style="
       background: #F97316;
@@ -48,7 +37,7 @@
     <a href="register.html" class="btn-nav"><i class="fa-solid fa-user-plus"></i> Register</a>
   </div>
 </nav>
-
+<main>
   <div class="card">
 
     <div class="card-header">
@@ -79,7 +68,6 @@
             <option>🔑 Keys</option>
             <option>💳 Wallet / Money</option>
             <option>👓 Eyewear</option>
-            <option>🎧 Headphones / Earbuds</option>
             <option>🖊️ Stationery</option>
             <option>📦 Other</option>
           </select>

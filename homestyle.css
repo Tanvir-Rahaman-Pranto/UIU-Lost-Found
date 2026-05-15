@@ -1,3 +1,9 @@
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
  :root {
     --orange: #F97316;
     --orange-dark: #EA6C0A;
@@ -5,6 +11,8 @@
     --text-dark: #1C1917;
     --text-mid: #57534E;
     --bg: #F5F5F4;
+    --lost_red: #9B0F06;
+    --found_green: #047857;
   }
 
   body {
@@ -15,16 +23,19 @@
     display: flex;
     flex-direction: column;
   }
-  nav {
-    background: #fff;
-    border-bottom: 1px solid #E7E5E4;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    height: 64px;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
-  }
+ nav {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 64px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
   .nav-logo {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
@@ -109,13 +120,13 @@
     transition: all 0.18s;
   }
   .btn-primary {
-    background: var(--orange);
+    background: var(--lost_red);
     color: #fff;
     box-shadow: 0 4px 16px rgba(249,115,22,0.35);
   }
   .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
   .btn-secondary {
-    background: #fff;
+    background: var(--found_green);
     color: var(--orange);
     border: 1.5px solid var(--orange);
   }
@@ -183,56 +194,7 @@
   }
   footer strong { color: var(--orange); }
 
-<<<<<<< HEAD
   @media (max-width: 500px) {
     nav { padding: 0 16px; }
     .nav-links a:not(.btn-nav) { display: none; }
   }
-=======
-/* Tablet (600px - 900px) */
-@media (max-width: 900px) {
-  main {
-    margin: 32px auto;
-    padding: 0 20px 40px;
-  }
-  .form-row {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Mobile (below 600px) */
-@media (max-width: 600px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  main {
-    margin: 20px auto;
-    padding: 0 16px 40px;
-  }
-  .card-header, .card-body {
-    padding: 20px 16px;
-  }
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  .card-header h1 {
-    font-size: 1.3rem;
-  }
-}
-
-/* Very small screens (below 360px) */
-@media (max-width: 360px) {
-  .nav-logo {
-    font-size: 1rem;
-  }
-  .card-header h1 {
-    font-size: 1.1rem;
-  }
-  .submit-btn {
-    font-size: 0.88rem;
-  }
-}
-@media (max-width: 600px) {
-  .nav-links { display: none !important; }
-  .hamburger { display: flex; }
-}
->>>>>>> 1e006cb (I changed the extra register button)
