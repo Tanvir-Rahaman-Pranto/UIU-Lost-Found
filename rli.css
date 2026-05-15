@@ -39,15 +39,27 @@ nav {
   z-index: 100;
 }
   .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     font-size: 1.15rem;
+
     color: var(--orange);
     text-decoration: none;
-  }
-  .nav-logo span { 
+}
+
+.nav-logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.nav-logo span {
     color: var(--text-dark);
-   }
+}
   .nav-links {
    display: flex; 
     gap: 8px;
