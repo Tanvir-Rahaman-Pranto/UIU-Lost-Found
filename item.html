@@ -50,12 +50,6 @@
 <!-- MAIN -->
 <main>
  
-  <!-- Demo switcher -->
-  <div class="demo-tabs">
-    <button class="demo-tab active-lost" onclick="showItem('lost', this)">🔴 View Lost Item</button>
-    <button class="demo-tab" onclick="showItem('found', this)">🟢 View Found Item</button>
-  </div>
- 
   <!-- ══════════════ LOST ITEM ══════════════ -->
   <div id="item-lost">
  
@@ -166,150 +160,11 @@
       </div>
  
     </div>
- 
-    <!-- Poster -->
-    <div class="section-label">Posted by</div>
-    <div class="poster-card">
-      <div class="poster-avatar">B</div>
-      <div class="poster-info">
-        <div class="poster-name">Bashir Ahmed</div>
-        <div class="poster-meta">
-          <span><i class="fa-solid fa-id-card"></i> 011201234</span>
-          <span><i class="fa-solid fa-calendar"></i> Posted May 9, 2026</span>
-          <span><i class="fa-solid fa-list"></i> 3 total posts</span>
-        </div>
-      </div>
-    </div>
+    
  
   </div>
  
-  <!-- ══════════════ FOUND ITEM ══════════════ -->
-  <div id="item-found" style="display:none;">
  
-    <div class="breadcrumb">
-      <a href="home.html">Home</a> <span>›</span>
-      <a href="#">Found Items</a> <span>›</span>
-      <span>Found Black Backpack</span>
-    </div>
- 
-    <div class="detail-card">
- 
-      <!-- Top -->
-      <div class="detail-top">
-        <img class="detail-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80" alt="Black Backpack" />
-        <div class="detail-info">
-          <span class="type-badge type-found"><i class="fa-solid fa-circle-check"></i> Found Item</span>
-          <h1 class="detail-title">Found Black Backpack</h1>
-          <p class="detail-desc">Found a black backpack on the university field near the tree beside the canteen. Contains some books and a water bottle. Currently keeping it safe — please contact to claim.</p>
-          <div class="meta-row">
-            <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> University Field, UIU</span>
-            <span class="meta-pill"><i class="fa-solid fa-calendar"></i> May 15, 2026</span>
-            <span class="meta-pill"><i class="fa-solid fa-clock"></i> ~12:00 PM</span>
-            <span class="meta-pill"><i class="fa-solid fa-tag"></i> Bags &amp; Accessories</span>
-          </div>
-          <span class="status-open">Active &nbsp;·&nbsp; Open</span>
-        </div>
-      </div>
- 
-      <hr class="divider" />
- 
-      <!-- Bottom details -->
-      <div class="detail-bottom">
-        <div class="detail-section">
-          <div class="section-title">Item Information</div>
-          <div class="info-row">
-            <i class="fa-solid fa-box"></i>
-            <span class="info-row-label">Item Name</span>
-            <span class="info-row-value">Black Backpack</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-tag"></i>
-            <span class="info-row-label">Category</span>
-            <span class="info-row-value">🎒 Bags &amp; Accessories</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-align-left"></i>
-            <span class="info-row-label">Description</span>
-            <span class="info-row-value">Black backpack, medium size, contains books, notebooks and a black water bottle</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-location-dot"></i>
-            <span class="info-row-label">Found At</span>
-            <span class="info-row-value">University field, near tree beside canteen</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-calendar"></i>
-            <span class="info-row-label">Date Found</span>
-            <span class="info-row-value">May 15, 2026</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-warehouse"></i>
-            <span class="info-row-label">Item Held At</span>
-            <span class="info-row-value">With finder (contact to collect)</span>
-          </div>
-        </div>
-        <div class="detail-section">
-          <div class="section-title">Contact Information</div>
-          <div class="info-row">
-            <i class="fa-solid fa-user"></i>
-            <span class="info-row-label">Found By</span>
-            <span class="info-row-value">Nadia Rahman</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-id-card"></i>
-            <span class="info-row-label">Student ID</span>
-            <span class="info-row-value">011205678</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-phone"></i>
-            <span class="info-row-label">Phone</span>
-            <span class="info-row-value">01898765432</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-envelope"></i>
-            <span class="info-row-label">Email</span>
-            <span class="info-row-value">nadia@uiu.ac.bd</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-eye"></i>
-            <span class="info-row-label">Views</span>
-            <span class="info-row-value">189</span>
-          </div>
-          <div class="info-row">
-            <i class="fa-solid fa-comment"></i>
-            <span class="info-row-label">Responses</span>
-            <span class="info-row-value">8</span>
-          </div>
-        </div>
-      </div>
- 
-      <!-- Actions -->
-      <div class="detail-actions">
-        <div class="actions-left">
-          <a href="tel:01898765432" class="btn btn-contact"><i class="fa-solid fa-phone"></i> Contact Finder</a>
-          <button class="btn btn-claim"><i class="fa-solid fa-hand-holding-heart"></i> This is Mine</button>
-          <button class="btn btn-resolved"><i class="fa-solid fa-circle-check"></i> Mark as Resolved</button>
-        </div>
-        <button class="btn btn-report"><i class="fa-solid fa-flag"></i> Report Post</button>
-      </div>
- 
-    </div>
- 
-    <!-- Poster -->
-    <div class="section-label">Posted by</div>
-    <div class="poster-card">
-      <div class="poster-avatar">N</div>
-      <div class="poster-info">
-        <div class="poster-name">Nadia Rahman</div>
-        <div class="poster-meta">
-          <span><i class="fa-solid fa-id-card"></i> 011205678</span>
-          <span><i class="fa-solid fa-calendar"></i> Posted May 15, 2026</span>
-          <span><i class="fa-solid fa-list"></i> 1 total post</span>
-        </div>
-      </div>
-    </div>
- 
-  </div>
  
 </main>
  

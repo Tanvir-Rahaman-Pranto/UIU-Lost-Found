@@ -12,29 +12,32 @@
     <ul class="nav-links">
         <li><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
     </ul>
-
 </nav>
 <body>
     <div class="register-card">
     <h2>Create an Account</h2>
-    <form>
+    <form action="php/register.php" method="post">
       <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" placeholder="Enter your full name" required>
+        <label for="id">Student ID</label>
+        <input type="text" name="id" id="id" placeholder="Enter your student ID" required>
+      </div>
+      <div class="form-group">
+        <label for="full_name">Full Name</label>
+        <input type="text" name="full_name" id="full_name" placeholder="Enter your full name" required>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="email" name="email" id="email" placeholder="Enter your email" required>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password" required>
+        <input type="password" name="password" id="password" placeholder="Enter your password" required>
       </div>
       <div class="form-group">
-        <label for="password">Confirm Password</label>
-        <input type="password" id="password" placeholder="Enter your password again" required>
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" name="password" id="confirm_password" placeholder="Enter your password again" required>
       </div>
-      <button type="submit" class="btn" onclick="window.location.href='user.html'">Register</button>
+      <button type="submit" class="btn" >Register</button>
     </form>
     <p class="login-link">
       Already have an account? <a href="login.html">Sign in</a>
