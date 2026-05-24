@@ -1,56 +1,79 @@
+<?php session_start(); include 'db.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Lost Item-UIU Lost & Found</title>
+    <title>Report Lost Item - UIU Lost & Found</title>
     <link rel="stylesheet" href="rli.css">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
 </head>
 <body>
-<nav>
-  <a href="index.html" class="nav-logo">
-      <img src="logo.png" alt="UIU Lost & Found Logo">
-      UIU <span>Lost &amp; Found</span>
-    </a>
-  <div class="nav-links">
-    <form method="get" style="display:flex; gap:8px;">
 
-  <button
-   type="button"
-  onclick="window.location.href='searchpage.html'"
-    type="submit"
-    style="
-      background: #F97316;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 14px;
-      cursor: pointer;
-      font-size: 0.85rem;
-    "
-  >
-    <i class="fa-solid fa-magnifying-glass"></i>
+<nav>
+  <a href="index.php" class="nav-logo">
+    <img src="logo.png" alt="UIU Lost & Found Logo">
+    UIU <span>Lost &amp; Found</span>
+  </a>
+
+  <div class="nav-links">
+    <button type="button" onclick="window.location.href='searchpage.html'" class="search-btn">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+
+    <a href="index.php"><i class="fa-solid fa-house"></i> Home</a>
+
+    <?php if (isset($_SESSION['user_id'])): ?>
+      <div class="profile-dropdown">
+        <div class="profile-btn" onclick="toggleDropdown()">
+          <?php if (!empty($_SESSION['user_photo'])): ?>
+            <img src="<?= htmlspecialchars($_SESSION['user_photo']) ?>" alt="Profile" class="profile-img" />
+          <?php else: ?>
+            <div class="profile-avatar"><?= strtoupper(substr($_SESSION['user_name'], 0, 1)) ?></div>
+          <?php endif; ?>
+          <span class="profile-name"><?= htmlspecialchars($_SESSION['user_name']) ?></span>
+          <i class="fa-solid fa-chevron-down fa-xs"></i>
+        </div>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="profile.php"><i class="fa-solid fa-user"></i> My Profile</a>
+          <a href="my-posts.php"><i class="fa-solid fa-list"></i> My Posts</a>
+          <hr>
+          <a href="php/logout.php" class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+      </div>
+    <?php else: ?>
+      <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+      <a href="register.html" class="btn-nav"><i class="fa-solid fa-user-plus"></i> Register</a>
+    <?php endif; ?>
+  </div>
+
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
   </button>
-</form>
-    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.php"><i class="fa-solid fa-house"></i> Home</a>
+  <?php if (isset($_SESSION['user_id'])): ?>
+    <a href="profile.php"><i class="fa-solid fa-user"></i> My Profile</a>
+    <a href="my-posts.php"><i class="fa-solid fa-list"></i> My Posts</a>
+    <a href="php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  <?php else: ?>
     <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
     <a href="register.html" class="btn-nav"><i class="fa-solid fa-user-plus"></i> Register</a>
-  </div>
-</nav>
+  <?php endif; ?>
+</div>
+
 <main>
   <div class="card">
-
     <div class="card-header">
       <h1>📢 Report a Lost Item</h1>
       <p>Fill in the details below. The more specific you are, the easier it is for someone to identify and return your item.</p>
     </div>
 
     <div class="card-body">
-
-      <form  method="post" enctype="multipart/form-data">
+      <form action="php/post_lost.php" method="post" enctype="multipart/form-data">
 
         <div class="form-section-title">Item Details</div>
 
@@ -102,12 +125,12 @@
             <option>Library</option>
             <option>Cafeteria</option>
             <option>Classroom</option>
-             <option>Lab</option>
+            <option>Lab</option>
             <option>Prayer Room</option>
             <option>Parking Lot</option>
             <option>ATM Booth</option>
             <option>Main Gate / Reception</option>
-            <option >Field</option>
+            <option>Field</option>
             <option>Other</option>
           </select>
         </div>
@@ -130,7 +153,6 @@
         </div>
 
         <hr class="divider" />
-
         <div class="form-section-title">Your Contact Info</div>
 
         <div class="form-group">
@@ -156,7 +178,7 @@
         </div>
 
         <button type="submit" class="submit-btn">📢 Submit Lost Item Report</button>
-        <a href="index.html" class="cancel-link">Cancel and go back</a>
+        <a href="index.php" class="cancel-link">Cancel and go back</a>
 
       </form>
     </div>
@@ -166,6 +188,21 @@
 <footer>
   Made with ❤️ for <strong>UIU</strong> students &nbsp;·&nbsp; © 2026 UIU Lost &amp; Found
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function toggleDropdown() {
+    document.getElementById('dropdownMenu').classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const dropdown = document.getElementById('dropdownMenu');
+    if (dropdown && !e.target.closest('.profile-dropdown')) {
+      dropdown.classList.remove('open');
+    }
+  });
+</script>
 
 </body>
 </html>

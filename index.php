@@ -38,7 +38,7 @@
           <i class="fa-solid fa-chevron-down"></i>
         </div>
         <div class="dropdown-menu" id="dropdownMenu">
-          <a href="profile.php"><i class="fa-solid fa-user"></i> My Profile</a>
+          <a href="user.php"><i class="fa-solid fa-user"></i> My Profile</a>
           <a href="my-posts.php"><i class="fa-solid fa-list"></i> My Posts</a>
           <hr>
           <a href="php/logout.php" class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
@@ -58,7 +58,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.php"><i class="fa-solid fa-house"></i> Home</a>
   <?php if (isset($_SESSION['user_id'])): ?>
-    <a href="profile.php"><i class="fa-solid fa-user"></i> My Profile</a>
+    <a href="user.php"><i class="fa-solid fa-user"></i> My Profile</a>
     <a href="my-posts.php"><i class="fa-solid fa-list"></i> My Posts</a>
     <a href="php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
   <?php else: ?>
@@ -77,8 +77,8 @@
   </p>
 
   <div class="actions">
-    <a href="rli.html" class="btn-primary">📢 Report Lost Item</a>
-    <a href="ifs.html" class="btn-secondary">🔍 I Found Something</a>
+    <a href="rli.php" class="btn-primary">📢 Report Lost Item</a>
+    <a href="ifs.php" class="btn-secondary">🔍 I Found Something</a>
   </div>
 
   <p class="steps-label">How it works</p>
