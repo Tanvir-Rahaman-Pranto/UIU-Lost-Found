@@ -20,7 +20,7 @@
   </div>
 
   <div class="nav-links">
-    <button type="button" onclick="window.location.href='searchpage.html'" class="search-btn">
+    <button type="button" onclick="window.location.href='searchpage.php'" class="search-btn">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
 
@@ -136,7 +136,7 @@
               <span><i class="fa-solid fa-user"></i> <?= htmlspecialchars($post['full_name']) ?></span>
               <span><i class="fa-solid fa-calendar"></i> <?= date('M j, Y', strtotime($post['created_at'])) ?></span>
             </div>
-            <a href="item-detail.php?id=<?= $post['id'] ?>" class="card-link">View Details →</a>
+            <a href="item.php?id=<?= $post['id'] ?>" class="card-link">View Details →</a>
           </div>
         </div>
       <?php endwhile; ?>

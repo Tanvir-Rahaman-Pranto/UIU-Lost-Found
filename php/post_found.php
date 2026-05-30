@@ -10,12 +10,13 @@ if (!isset($_SESSION['user_id'])) {
 $user_id       = $_SESSION['user_id'];
 $type          = 'found';
 $item_name     = $_POST['item_name'];
+$category      =  $_POST['category'];
 $description   = $_POST['description'];
 $location      = $_POST['location'];
 $specific_spot = $_POST['specific_spot'];
 $held_at       = $_POST['held_at'];
-$date_reported = $_POST['date_found'];
-$time_reported = $_POST['time_found'];
+$date_reported = $_POST['date_reported'];
+$time_reported = $_POST['time_reported'];
 
 // Handle photo upload
 $photo_url = "";
@@ -34,15 +35,16 @@ if (!empty($_FILES['photo']['name'])) {
 }
 
 $item_name     = mysqli_real_escape_string($conn, $item_name);
+$category      = mysqli_real_escape_string($conn, $category);
 $description   = mysqli_real_escape_string($conn, $description);
 $location      = mysqli_real_escape_string($conn, $location);
 $specific_spot = mysqli_real_escape_string($conn, $specific_spot);
 $held_at       = mysqli_real_escape_string($conn, $held_at);
 
 $sql = "INSERT INTO posts 
-        (user_id, type, item_name, description, photo_url, location, specific_spot, held_at, date_reported, time_reported) 
+        (user_id, type, item_name, category, description, photo_url, location, specific_spot, held_at, date_reported, time_reported) 
         VALUES 
-        ('$user_id', '$type', '$item_name', '$description', '$photo_url', '$location', '$specific_spot', '$held_at', '$date_reported', '$time_reported')";
+        ('$user_id', '$type', '$item_name', '$category', '$description', '$photo_url', '$location', '$specific_spot', '$held_at', '$date_reported', '$time_reported')";
 
 if (mysqli_query($conn, $sql)) {
     header("Location: ../index.php");

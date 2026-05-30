@@ -19,7 +19,7 @@
   </a>
  
   <div class="nav-links">
-    <button type="button" onclick="window.location.href='searchpage.html'" class="search-btn">
+    <button type="button" onclick="window.location.href='searchpage.php'" class="search-btn">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
  

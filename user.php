@@ -37,7 +37,7 @@ $total_posts  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM posts WHERE 
     UIU <span>Lost &amp; Found</span>
   </a>
   <div class="nav-links">
-    <button type="button" onclick="window.location.href='searchpage.html'" class="search-btn">
+    <button type="button" onclick="window.location.href='searchpage.php'" class="search-btn">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
 
@@ -166,7 +166,7 @@ $total_posts  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM posts WHERE 
 
       <?php if (mysqli_num_rows($posts_result) > 0): ?>
         <?php while ($post = mysqli_fetch_assoc($posts_result)): ?>
-          <div class="post-item">
+          <div class="post-item" onclick="window.location.href='item.php?id=<?= $post['id'] ?>'">
             <?php if (!empty($post['photo_url'])): ?>
               <img src="<?= htmlspecialchars($post['photo_url']) ?>" alt="<?= htmlspecialchars($post['item_name']) ?>" />
             <?php else: ?>
@@ -186,11 +186,11 @@ $total_posts  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM posts WHERE 
             <div class="post-right">
               <span class="status <?= $post['type'] ?>"><?= ucfirst($post['type']) ?></span>
               <div class="post-actions">
-                <a href="item-detail.php?id=<?= $post['id'] ?>" class="post-action-btn view-btn">
+                <a href="item.php?id=<?= $post['id'] ?>" class="post-action-btn view-btn">
                   <i class="fa-regular fa-eye"></i>
                 </a>
                 <a href="php/delete_post.php?id=<?= $post['id'] ?>" class="post-action-btn delete-btn"
-                   onclick="return confirm('Are you sure you want to delete this post?')">
+                   onclick="return confirm('Are you sure you want to delete this post? This cannot be undone.')">
                   <i class="fa-regular fa-trash-can"></i>
                 </a>
               </div>
