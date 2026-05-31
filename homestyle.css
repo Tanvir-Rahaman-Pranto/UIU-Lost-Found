@@ -510,11 +510,18 @@ footer {
 }
 footer strong { color: var(--orange); }
 
+
+
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
+}
+@media (max-width: 480px) {
+  .filter-form { gap: 8px; }
+  .filter-select { font-size: 0.78rem; padding: 7px 10px; }
 }
 
 @media (max-width: 480px) {
