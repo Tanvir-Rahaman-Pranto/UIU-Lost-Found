@@ -106,14 +106,14 @@
         </div>
 
         <div class="form-group">
-          <label>Photo (optional)</label>
-          <div class="upload-box">
-            <input type="file" name="photo" accept="image/*" />
-            <span class="upload-icon">📷</span>
-            <p>Click to upload a photo of the item</p>
-            <span>JPG, PNG – max 5MB</span>
-          </div>
-        </div>
+  <label>Photo (optional)</label>
+  <div class="upload-box" id="uploadBox">
+    <input type="file" name="photo" accept="image/*" id="photoInput" onchange="handleFileSelect(this)" />
+    <span class="upload-icon" id="uploadIcon">📷</span>
+    <p id="uploadText">Click to upload a photo of the found item</p>
+    <span id="uploadHint">JPG, PNG – max 5MB</span>
+  </div>
+</div>
 
         <hr class="divider" />
         <div class="form-section-title">Where &amp; When</div>
@@ -202,6 +202,29 @@
       dropdown.classList.remove('open');
     }
   });
+
+
+  function handleFileSelect(input) {
+  const box     = document.getElementById('uploadBox');
+  const icon    = document.getElementById('uploadIcon');
+  const text    = document.getElementById('uploadText');
+  const hint    = document.getElementById('uploadHint');
+
+  if (input.files && input.files[0]) {
+    const file = input.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      icon.innerHTML = '<img src="' + e.target.result + '" style="max-height:120px;max-width:100%;border-radius:8px;margin-bottom:8px;" />';
+    };
+    reader.readAsDataURL(file);
+
+    text.textContent = '✅ ' + file.name;
+    hint.textContent = (file.size / 1024).toFixed(1) + ' KB — click to change';
+    box.style.borderColor = '#F97316';
+    box.style.background  = '#FFEDD5';
+  }
+}
 </script>
 
 </body>
