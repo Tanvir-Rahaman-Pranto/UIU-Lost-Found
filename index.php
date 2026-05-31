@@ -104,13 +104,68 @@
   </div>
 
   <!-- POSTS -->
-  <?php
-  $sql    = "SELECT posts.*, users.full_name, users.profile_photo
-             FROM posts
-             JOIN users ON posts.user_id = users.id
-             ORDER BY posts.created_at DESC";
-  $result = mysqli_query($conn, $sql);
-  $count  = mysqli_num_rows($result);
+<!-- FILTER BAR -->
+<?php
+$filter_type     = isset($_GET['type'])     ? $_GET['type']     : 'all';
+$filter_status   = isset($_GET['status'])   ? $_GET['status']   : 'all';
+$filter_category = isset($_GET['category']) ? $_GET['category'] : 'all';
+$filter_sort     = isset($_GET['sort'])     ? $_GET['sort']     : 'newest';
+
+$categories = [
+    '📱 Electronics', '🪪 ID / Cards', '🎒 Bags & Accessories',
+    '📚 Books & Notes', '👕 Clothing', '🔑 Keys', '💳 Wallet / Money',
+    '👓 Eyewear', '🎧 Headphones / Earbuds', '🖊️ Stationery', '📦 Other'
+];
+?>
+<div class="filter-bar">
+  <form method="GET" action="index.php" class="filter-form">
+    <select name="type" class="filter-select" onchange="this.form.submit()">
+      <option value="all"   <?= $filter_type === 'all'   ? 'selected' : '' ?>>All Types</option>
+      <option value="lost"  <?= $filter_type === 'lost'  ? 'selected' : '' ?>>🔴 Lost</option>
+      <option value="found" <?= $filter_type === 'found' ? 'selected' : '' ?>>🟢 Found</option>
+    </select>
+
+    <select name="status" class="filter-select" onchange="this.form.submit()">
+      <option value="all"      <?= $filter_status === 'all'      ? 'selected' : '' ?>>All Status</option>
+      <option value="open"     <?= $filter_status === 'open'     ? 'selected' : '' ?>>Open</option>
+      <option value="resolved" <?= $filter_status === 'resolved' ? 'selected' : '' ?>>Resolved</option>
+    </select>
+
+    <select name="category" class="filter-select" onchange="this.form.submit()">
+      <option value="all">All Categories</option>
+      <?php foreach ($categories as $cat): ?>
+        <option value="<?= htmlspecialchars($cat) ?>" <?= $filter_category === $cat ? 'selected' : '' ?>>
+          <?= htmlspecialchars($cat) ?>
+        </option>
+      <?php endforeach; ?>
+    </select>
+
+    <select name="sort" class="filter-select" onchange="this.form.submit()">
+      <option value="newest" <?= $filter_sort === 'newest' ? 'selected' : '' ?>>🕐 Newest First</option>
+      <option value="oldest" <?= $filter_sort === 'oldest' ? 'selected' : '' ?>>🕐 Oldest First</option>
+    </select>
+
+    <?php if ($filter_type !== 'all' || $filter_status !== 'all' || $filter_category !== 'all' || $filter_sort !== 'newest'): ?>
+      <a href="index.php" class="filter-clear">✕ Clear</a>
+    <?php endif; ?>
+  </form>
+</div>
+
+<!-- POSTS -->
+<?php
+ $where = "WHERE 1=1";
+if ($filter_type     !== 'all') $where .= " AND posts.type = '"     . mysqli_real_escape_string($conn, $filter_type)     . "'";
+if ($filter_status   !== 'all') $where .= " AND posts.status = '"   . mysqli_real_escape_string($conn, $filter_status)   . "'";
+if ($filter_category !== 'all') $where .= " AND posts.category = '" . mysqli_real_escape_string($conn, $filter_category) . "'";
+$order = $filter_sort === 'oldest' ? 'ASC' : 'DESC';
+
+$sql    = "SELECT posts.*, users.full_name, users.profile_photo
+           FROM posts
+           JOIN users ON posts.user_id = users.id
+           $where
+           ORDER BY posts.created_at $order";
+$result = mysqli_query($conn, $sql);
+$count  = mysqli_num_rows($result);
   ?>
 
   <?php if ($count > 0): ?>

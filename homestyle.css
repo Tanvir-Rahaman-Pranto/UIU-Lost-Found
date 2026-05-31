@@ -330,6 +330,58 @@ h1 em { color: var(--orange); font-style: normal; }
 }
 .step p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
 
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  width: 100%;
+  max-width: 860px;
+  margin: 40px auto 0;
+  padding: 0 8px;
+}
+.filter-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+.filter-select {
+  padding: 8px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-mid);
+  background: var(--bg);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2357534E' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+  background-color: var(--bg);
+}
+.filter-select:focus { border-color: var(--orange); }
+.filter-clear {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #DC2626;
+  background: #FEF2F2;
+  border: 1.5px solid #FECACA;
+  text-decoration: none;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.filter-clear:hover { background: #FEE2E2; }
+
 /* ── POSTS SECTION ── */
 .posts-header {
   display: flex;
