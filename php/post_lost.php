@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id       = $_SESSION['user_id'];
 $type          = 'lost';
 $item_name     = $_POST['item_name'];
-$category      =  $_POST['category'];
+$category      = $_POST['category'];
 $description   = $_POST['description'];
 $location      = $_POST['location'];
 $specific_spot = $_POST['specific_spot'];
@@ -42,7 +42,7 @@ $specific_spot = mysqli_real_escape_string($conn, $specific_spot);
 $sql = "INSERT INTO posts 
         (user_id, type, item_name, category, description, photo_url, location, specific_spot, date_reported, time_reported) 
         VALUES 
-        ('$user_id', '$type', '$item_name', '$description', '$photo_url', '$location', '$specific_spot', '$date_reported', '$time_reported')";
+        ('$user_id', '$type', '$item_name', '$category', '$description', '$photo_url', '$location', '$specific_spot', '$date_reported', '$time_reported')";
 
 if (mysqli_query($conn, $sql)) {
     header("Location: ../index.php");
