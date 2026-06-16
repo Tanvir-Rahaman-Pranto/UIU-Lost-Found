@@ -83,15 +83,15 @@ if (isset($_GET['resolve']) && isset($_SESSION['user_id']) && $_SESSION['user_id
     <a href="index.php"><i class="fa-solid fa-house"></i> Home</a>
 
     <?php if (isset($_SESSION['user_id'])): ?>
-      <div class="user-menu">
-        <?php if (!empty($_SESSION['user_photo'])): ?>
-          <img src="<?= htmlspecialchars($_SESSION['user_photo']) ?>" alt="User" />
-        <?php else: ?>
-          <div class="nav-avatar"><?= strtoupper(substr($_SESSION['user_name'], 0, 1)) ?></div>
-        <?php endif; ?>
-        <h4><?= htmlspecialchars($_SESSION['user_name']) ?></h4>
-        <i class="fa-solid fa-chevron-down" onclick="toggleDropdown(event)"></i>
-        <div class="user-dropdown" id="userDropdown">
+    <div class="user-menu" onclick="toggleDropdown(event)">
+  <?php if (!empty($_SESSION['user_photo'])): ?>
+    <img src="<?= htmlspecialchars($_SESSION['user_photo']) ?>" alt="User" />
+  <?php else: ?>
+    <div class="nav-avatar"><?= strtoupper(substr($_SESSION['user_name'], 0, 1)) ?></div>
+  <?php endif; ?>
+  <h4><?= htmlspecialchars($_SESSION['user_name']) ?></h4>
+  <i class="fa-solid fa-chevron-down"></i>
+  <div class="user-dropdown" id="userDropdown">
           <a href="user.php"><i class="fa-solid fa-user"></i> My Profile</a>
           <a href="my-posts.php"><i class="fa-solid fa-list"></i> My Posts</a>
           <hr style="border:none;border-top:1px solid #eee;margin:4px 0;">
